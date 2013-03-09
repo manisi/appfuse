@@ -8,6 +8,8 @@ import static com.google.web.bindery.autobean.shared.AutoBeanUtils.getAutoBean;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.appfuse.webapp.proxies.PeopleSearchCriteriaProxy;
+import org.appfuse.webapp.proxies.PersonProxy;
 import org.appfuse.webapp.proxies.UserProxy;
 import org.appfuse.webapp.proxies.UsersSearchCriteriaProxy;
 import org.appfuse.webapp.requests.ApplicationRequestFactory;
@@ -35,11 +37,13 @@ public class ApplicationProxyFactory {
 		// for automatic serialization of the search criteria to the history token, as
 		// there is no way to re-generate a class object, that is not an EntityProxy.class, from a token string 
 		SEARCH_CRITERIA_TYPES_MAP.put(UserProxy.class, UsersSearchCriteriaProxy.class);
+		SEARCH_CRITERIA_TYPES_MAP.put(PersonProxy.class, PeopleSearchCriteriaProxy.class);
 	}
 
 	//
 	public interface NonPublicProxyFactory extends AutoBeanFactory {
 		  AutoBean<UsersSearchCriteriaProxy> searchCriteria();
+		  AutoBean<PeopleSearchCriteriaProxy> peopleSearchCriteria();
 	}
 	
 	private NonPublicProxyFactory autoBeanFactory = GWT.create(NonPublicProxyFactory.class);

@@ -12,6 +12,8 @@ import org.appfuse.webapp.client.ui.logout.LogoutActivity;
 import org.appfuse.webapp.client.ui.logout.LogoutPlace;
 import org.appfuse.webapp.client.ui.mainMenu.MainMenuActivity;
 import org.appfuse.webapp.client.ui.mainMenu.MainMenuPlace;
+import org.appfuse.webapp.client.ui.people.edit.EditPersonActivity;
+import org.appfuse.webapp.client.ui.people.list.PeopleSearchActivity;
 import org.appfuse.webapp.client.ui.reloadOptions.ReloadOptionsActivity;
 import org.appfuse.webapp.client.ui.reloadOptions.ReloadOptionsPlace;
 import org.appfuse.webapp.client.ui.upload.FileUploadActivity;
@@ -24,6 +26,7 @@ import org.appfuse.webapp.client.ui.users.editUser.EditUserActivity;
 import org.appfuse.webapp.client.ui.users.search.UsersSearchActivity;
 import org.appfuse.webapp.client.ui.users.signUp.SignUpActivity;
 import org.appfuse.webapp.client.ui.users.signUp.SignUpPlace;
+import org.appfuse.webapp.proxies.PersonProxy;
 import org.appfuse.webapp.proxies.UserProxy;
 
 import com.google.gwt.activity.shared.Activity;
@@ -85,11 +88,17 @@ public class ApplicationActivityMapper implements ActivityMapper {
 			if(UserProxy.class.equals(proxyPlace.getProxyClass())) {
 				activity = new EditUserActivity(application);
 			}
+			else if(PersonProxy.class.equals(proxyPlace.getProxyClass())) {
+				activity = new EditPersonActivity(application);
+			}
 		}
 		else if(place instanceof EntitySearchPlace) {
 			EntitySearchPlace listPlace = (EntitySearchPlace) place;
 			if(UserProxy.class.equals(listPlace.getProxyClass())) {
 				activity = new UsersSearchActivity(listPlace, application);
+			}
+			else if(PersonProxy.class.equals(listPlace.getProxyClass())) {
+				activity = new PeopleSearchActivity(listPlace, application);
 			}
 		}
 		

@@ -20,6 +20,7 @@ import org.appfuse.webapp.client.ui.reloadOptions.ReloadOptionsPlace;
 import org.appfuse.webapp.client.ui.upload.FileUploadPlace;
 import org.appfuse.webapp.client.ui.users.active.ActiveUsersPlace;
 import org.appfuse.webapp.client.ui.users.editProfile.EditProfilePlace;
+import org.appfuse.webapp.proxies.PersonProxy;
 import org.appfuse.webapp.proxies.UserProxy;
 
 import com.google.gwt.core.client.GWT;
@@ -40,6 +41,8 @@ public class ApplicationMenu {
 	{
 		rootMenu.add(new MenuItem(i18n.mainMenu_title(), new MainMenuPlace(), ROLE_USER, ROLE_ADMIN));
 		rootMenu.add(new MenuItem(i18n.menu_user(), new EditProfilePlace(), ROLE_USER, ROLE_ADMIN));
+		
+		rootMenu.add(new MenuItem("People", new EntitySearchPlace(PersonProxy.class), ROLE_USER, ROLE_ADMIN));
 		
 		rootMenu.add(adminMenu);
 		adminMenu.add(new MenuItem(i18n.menu_admin_users(), new EntitySearchPlace(UserProxy.class), ROLE_ADMIN));
