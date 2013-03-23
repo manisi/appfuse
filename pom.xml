@@ -200,12 +200,12 @@
         <repository>
             <id>appfuse-releases</id>
             <name>AppFuse Release Repository</name>
-            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <url>file:///home/opt/workspaces/AppFuse/repo</url>
         </repository>
         <snapshotRepository>
             <id>appfuse-snapshots</id>
             <name>AppFuse Snapshot Repository</name>
-            <url>http://oss.sonatype.org/content/repositories/appfuse-snapshots</url>
+            <url>file:///home/opt/workspaces/AppFuse/repo</url>
         </snapshotRepository>
         <site>
             <id>appfuse-site</id>
@@ -219,7 +219,7 @@
         <module>service</module>
         <module>web</module>
         <module>archetypes</module>
-        <module>plugins</module>
+<!--         <module>plugins</module> -->
     </modules>
 
     <repositories>
