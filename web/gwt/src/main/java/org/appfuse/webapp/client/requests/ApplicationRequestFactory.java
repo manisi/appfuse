@@ -14,4 +14,6 @@ public interface ApplicationRequestFactory  extends RequestFactory {
 	
 	UserRequest userRequest();
 
+	PersonRequest personRequest();
+
 }
