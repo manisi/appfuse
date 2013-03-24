@@ -10,6 +10,10 @@ import org.appfuse.webapp.client.ui.login.LoginView;
 import org.appfuse.webapp.client.ui.login.LoginViewImpl;
 import org.appfuse.webapp.client.ui.mainMenu.MainMenuView;
 import org.appfuse.webapp.client.ui.mainMenu.MainMenuViewDesktop;
+import org.appfuse.webapp.client.ui.people.edit.EditPersonView;
+import org.appfuse.webapp.client.ui.people.edit.EditPersonViewImpl;
+import org.appfuse.webapp.client.ui.people.list.PeopleSearchView;
+import org.appfuse.webapp.client.ui.people.list.PeopleSearchViewImpl;
 import org.appfuse.webapp.client.ui.upload.views.FileUploadView;
 import org.appfuse.webapp.client.ui.upload.views.FileUploadViewImpl;
 import org.appfuse.webapp.client.ui.upload.views.UploadedFileView;
@@ -84,7 +88,14 @@ public class ApplicationViewFactory {
 			view = GWT.create(UsersSearchViewImpl.class);
 			reusableViews.put(viewClass, view);
 		}
-		
+		else if(PeopleSearchView.class.equals(viewClass)) {
+			view = GWT.create(PeopleSearchViewImpl.class);
+			reusableViews.put(viewClass, view);
+		}
+		else if(EditPersonView.class.equals(viewClass)) {
+			view = GWT.create(EditPersonViewImpl.class);
+			reusableViews.put(viewClass, view);
+		}		
 		return view;
 	}
 }

@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.appfuse.webapp.client.application.base.place.EntitySearchPlace;
 import org.appfuse.webapp.client.application.utils.menu.MenuItem;
+import org.appfuse.webapp.client.proxies.PersonProxy;
 import org.appfuse.webapp.client.proxies.UserProxy;
 import org.appfuse.webapp.client.ui.login.LoginPlace;
 import org.appfuse.webapp.client.ui.logout.LogoutPlace;
@@ -40,6 +41,8 @@ public class ApplicationMenu {
 	{
 		rootMenu.add(new MenuItem(i18n.mainMenu_title(), new MainMenuPlace(), ROLE_USER, ROLE_ADMIN));
 		rootMenu.add(new MenuItem(i18n.menu_user(), new EditProfilePlace(), ROLE_USER, ROLE_ADMIN));
+		
+		rootMenu.add(new MenuItem("People", new EntitySearchPlace(PersonProxy.class), ROLE_USER, ROLE_ADMIN));
 		
 		rootMenu.add(adminMenu);
 		adminMenu.add(new MenuItem(i18n.menu_admin_users(), new EntitySearchPlace(UserProxy.class), ROLE_ADMIN));

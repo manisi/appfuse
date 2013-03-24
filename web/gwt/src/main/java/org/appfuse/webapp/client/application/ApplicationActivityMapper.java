@@ -6,6 +6,7 @@ package org.appfuse.webapp.client.application;
 import org.appfuse.webapp.client.application.base.activity.AbstractBaseActivity;
 import org.appfuse.webapp.client.application.base.place.EntityProxyPlace;
 import org.appfuse.webapp.client.application.base.place.EntitySearchPlace;
+import org.appfuse.webapp.client.proxies.PersonProxy;
 import org.appfuse.webapp.client.proxies.UserProxy;
 import org.appfuse.webapp.client.ui.login.LoginActivity;
 import org.appfuse.webapp.client.ui.login.LoginPlace;
@@ -13,6 +14,8 @@ import org.appfuse.webapp.client.ui.logout.LogoutActivity;
 import org.appfuse.webapp.client.ui.logout.LogoutPlace;
 import org.appfuse.webapp.client.ui.mainMenu.MainMenuActivity;
 import org.appfuse.webapp.client.ui.mainMenu.MainMenuPlace;
+import org.appfuse.webapp.client.ui.people.edit.EditPersonActivity;
+import org.appfuse.webapp.client.ui.people.list.PeopleSearchActivity;
 import org.appfuse.webapp.client.ui.reloadOptions.ReloadOptionsActivity;
 import org.appfuse.webapp.client.ui.reloadOptions.ReloadOptionsPlace;
 import org.appfuse.webapp.client.ui.upload.FileUploadActivity;
@@ -85,12 +88,18 @@ public class ApplicationActivityMapper implements ActivityMapper {
 			if(UserProxy.class.equals(proxyPlace.getProxyClass())) {
 				activity = new EditUserActivity(application);
 			}
+			else if(PersonProxy.class.equals(proxyPlace.getProxyClass())) {
+				activity = new EditPersonActivity(application);
+			}			
 		}
 		else if(place instanceof EntitySearchPlace) {
 			EntitySearchPlace listPlace = (EntitySearchPlace) place;
 			if(UserProxy.class.equals(listPlace.getProxyClass())) {
 				activity = new UsersSearchActivity(listPlace, application);
 			}
+			else if(PersonProxy.class.equals(listPlace.getProxyClass())) {
+				activity = new PeopleSearchActivity(listPlace, application);
+			}			
 		}
 		
 		if(activity instanceof AbstractBaseActivity) {
