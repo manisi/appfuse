@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.appfuse.archetypes</groupId>
+  <artifactId>appfuse-basic-gwt-archetype</artifactId>
+  <versioning>
+    <versions>
+      <version>2.2.2-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20130325190221</lastUpdated>
+  </versioning>
+</metadata>
